@@ -1,5 +1,6 @@
 import React from "react";
 
+// PRESENTATION / DUMB COMPONENT / STATELESS
 const person = (props) => {
   return (
     <div>

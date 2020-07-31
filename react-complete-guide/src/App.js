@@ -4,7 +4,7 @@ import "./App.css";
 // The import name should start with uppercase character
 import Person from "./Person/Person.js";
 
-// REACT HOOKS
+// STATEFUL COMPONENT
 const app = (props) => {
   // useState always return an array with two elements
   const [personsState, setPersonsState] = useState({
