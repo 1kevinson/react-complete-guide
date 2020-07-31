@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import "./App.css";
 
+// The import name should start with uppercase character
+import Person from "./Person/Person.js";
+
 class App extends Component {
   render() {
     // Javascript Code
@@ -8,6 +11,7 @@ class App extends Component {
       <div className="App">
         <h1> Hi, react app</h1>
         <p>This is really working!</p>
+        <Person />
       </div>
     );
 
