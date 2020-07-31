@@ -1,9 +1,12 @@
 import React from "react";
 
+// Import CSS in js file to use it
+import "./Person.css";
+
 // PRESENTATION / DUMB COMPONENT / STATELESS
 const person = (props) => {
   return (
-    <div>
+    <div className="Person">
       <p onClick={props.click}>
         I'm {props.name} and I am {props.age} years old !
       </p>
