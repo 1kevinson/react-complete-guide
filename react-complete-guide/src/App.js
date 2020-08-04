@@ -25,13 +25,20 @@ class App extends Component {
     });
   };
 
-  nameChangeHandler = (event) => {
+  nameChangeHandler = (event, id) => {
+    const personIndex = this.state.persons.findIndex((p) => {
+      return p.id === id;
+    });
+
+    //Copy of the object
+    const person = { ...this.state.persons[personIndex] };
+
+    person.name = event.target.value;
+    const nPersons = [...this.state.persons];
+    nPersons[personIndex] = person;
+
     this.setState({
-      persons: [
-        { name: "Kev", age: 26 },
-        { name: event.target.value, age: 26 },
-        { name: "Stephanie", age: 24 },
-      ],
+      persons: nPersons,
     });
   };
 
@@ -71,6 +78,9 @@ class App extends Component {
                 name={person.name}
                 age={person.age}
                 key={person.id}
+                changed={(event) => {
+                  this.nameChangeHandler(event, person.id);
+                }}
               />
             );
           })}
