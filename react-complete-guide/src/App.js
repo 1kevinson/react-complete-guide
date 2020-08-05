@@ -1,22 +1,7 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 import "./App.css";
 
 import Person from "./Person/Person.js";
-
-const StyledButton = styled.button`
-  background-color: ${(props) => (props.alt ? "red" : "green")};
-  color: white;
-  font: inherit;
-  border: 2px solid grey;
-  padding: 0.7rem;
-  cursor: pointer;
-
-  &:hover {
-    background-color: ${(props) => (props.alt ? "salmon" : "lightgreen")};
-    color: ${(props) => (props.alt ? "white" : "black")};
-  }
-`;
 
 class App extends Component {
   state = {
