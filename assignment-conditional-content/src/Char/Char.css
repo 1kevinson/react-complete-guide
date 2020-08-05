@@ -1,0 +1,14 @@
+.char-box {
+  display: inline-block;
+  padding: 1rem;
+  font-weight: bold;
+  background-color: #cccccc;
+  margin: 1rem;
+  border: solid 2px black;
+}
+
+.char-box:hover {
+  border: solid 2px #cccccc;
+  background-color: black;
+  color: white;
+}

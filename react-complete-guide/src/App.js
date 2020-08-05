@@ -15,10 +15,6 @@ class App extends Component {
     showPersons: false,
   };
 
-  textState = {
-    textLength: null,
-  };
-
   switchNameHandler = (newName) => {
     this.setState({
       persons: [
@@ -61,11 +57,6 @@ class App extends Component {
     });
   };
 
-  enteredTextHandler = (event) => {
-    this.textState.textLength = event.target.value.length;
-    this.setState({ textLength: event.target.value.length });
-  };
-
   render() {
     const style = {
       backgroundColor: "white",
@@ -104,9 +95,6 @@ class App extends Component {
         <button style={style} onClick={this.togglePersonHandler}>
           Toggle Persons
         </button>
-        <br /> <br />
-        <input type="text" onChange={this.enteredTextHandler} />
-        <p>{this.textState.textLength}</p>
         {persons}
       </div>
     );
