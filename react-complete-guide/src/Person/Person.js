@@ -19,12 +19,6 @@ const StyledDiv = styled.div`
 `;
 
 const person = (props) => {
-  const style = {
-    "@media (minWidth: 500px)": {
-      width: "40%",
-    },
-  };
-
   return (
     // <div className="Person" style={style}>
     <StyledDiv>
