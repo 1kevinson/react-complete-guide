@@ -3,6 +3,7 @@ import React from "react";
 // CSS Modules is better approach to work with Javascript
 import classes from "./Person.css";
 
+// props is use to bind attribute define in App.js
 const person = (props) => {
   return (
     <div className={classes.Person}>
