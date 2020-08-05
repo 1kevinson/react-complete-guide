@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import "./App.css";
 
-import Radium, { StyleRoot } from "radium";
 import Person from "./Person/Person.js";
 
 class App extends Component {
@@ -108,16 +108,14 @@ class App extends Component {
     }
 
     return (
-      <StyleRoot>
-        <div className="App">
-          <h1> Hi, react app</h1>
-          <p className={classes.join(" ")}>This is really working!</p>
-          <button style={style} onClick={this.togglePersonHandler}>
-            Toggle Persons
-          </button>
-          {persons}
-        </div>
-      </StyleRoot>
+      <div className="App">
+        <h1> Hi, react app</h1>
+        <p className={classes.join(" ")}>This is really working!</p>
+        <button style={style} onClick={this.togglePersonHandler}>
+          Toggle Persons
+        </button>
+        {persons}
+      </div>
     );
 
     // Javascript above it's get compiled to this code
@@ -125,4 +123,4 @@ class App extends Component {
   }
 }
 
-export default Radium(App);
+export default App;

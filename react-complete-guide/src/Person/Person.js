@@ -1,26 +1,40 @@
 import React from "react";
+import styled from "styled-components";
 
-// Import CSS in js file to use it
 import "./Person.css";
-import Radium, { StyleRoot } from "radium";
 
-// PRESENTATION / DUMB COMPONENT / STATELESS
+const StyledDiv = styled.div`
+  width: 50%;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 3px #ccc;
+  padding: 3rem;
+  text-align: center;
+  border-radius: 7px;
+  margin: 1.5rem auto;
+  font-size: 1.5rem;
+
+  @media (min-width: 500px) : {
+    width: "40%";
+  }
+`;
+
 const person = (props) => {
   const style = {
-    "@media (min-width: 500px)": {
+    "@media (minWidth: 500px)": {
       width: "40%",
     },
   };
 
   return (
-    <div className="Person" style={style}>
+    // <div className="Person" style={style}>
+    <StyledDiv>
       <p onClick={props.click}>
         I'm {props.name} and I am {props.age} years old !
       </p>
       <p>{props.children}</p>
       <input type="text" onChange={props.changed} value={props.name} />
-    </div>
+    </StyledDiv>
   );
 };
 
-export default Radium(person);
+export default person;
