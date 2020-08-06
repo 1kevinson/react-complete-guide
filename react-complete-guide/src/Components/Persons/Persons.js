@@ -1,7 +1,7 @@
 import React from "react";
 import Person from "./Person/Person";
 
-// props is use to retrieve attributs define in the root file
+// props is use to retrieve attributes define in the root file
 const persons = (props) => {
   return props.persons.map((person, index) => {
     return (

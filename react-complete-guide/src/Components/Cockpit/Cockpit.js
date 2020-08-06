@@ -17,11 +17,9 @@ const cockpit = (props) => {
     assignedClasses.push(classes.bold);
   }
 
-  console.log(btnClass);
-
   return (
     <div className={classes.Cockpit}>
-      <h1> Hi, react app</h1>
+      <h1> {props.title}</h1>
       <p className={assignedClasses.join(" ")}>This is really working!</p>
       <button className={btnClass.join(" ")} onClick={props.toggled}>
         Toggle Persons
