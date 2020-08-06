@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // Hack the webpack to use CSS modules
 import classes from "./App.css";
 
-import Person from "./Person/Person.js";
+import Person from "../Components/Persons/Person/Person.js";
 
 class App extends Component {
   state = {
@@ -67,7 +67,7 @@ class App extends Component {
         <div>
           {this.state.persons.map((person, index) => {
             return (
-                // age is a props
+              // age is a props
               <Person
                 click={() => this.deletePersonHandler(index)}
                 name={person.name}
