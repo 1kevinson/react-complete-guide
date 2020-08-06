@@ -5,7 +5,7 @@ const cockpit = (props) => {
   const assignedClasses = [];
   let btnClass = [classes.Button];
 
-  if (props.showpersons) {
+  if (props.showPersons) {
     btnClass.push(classes.Red);
   }
 
