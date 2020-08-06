@@ -3,6 +3,7 @@ import Person from "./Person/Person";
 
 // props is use to retrieve attributes define in the root file
 const persons = (props) => {
+  console.log("[Person.js] rendering...");
   return props.persons.map((person, index) => {
     return (
       <Person
