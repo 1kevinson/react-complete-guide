@@ -4,9 +4,12 @@ import classes from "./Cockpit.css";
 const cockpit = (props) => {
   //Run when the component is Update or Created
   useEffect(() => {
-    //HttpRequest
     console.log("[Cockpit.js] useEffect");
-  });
+    //HttpRequest
+    setTimeout(() => {
+      alert("person modified");
+    }, 1000);
+  }, [props.persons]); // Execute alert when persons props are modified
 
   const assignedClasses = [];
   let btnClass = [classes.Button];
