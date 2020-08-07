@@ -7,9 +7,19 @@ const cockpit = (props) => {
     console.log("[Cockpit.js] useEffect");
     //HttpRequest
     setTimeout(() => {
-      alert("person modified");
+      // alert("person modified");
     }, 1000);
-  }, [props.persons]); // Execute alert when persons props are modified
+    return () => {
+      console.log("[Cockpit.js] cleanup work in useEffect");
+    };
+  }, []);
+
+  useEffect(() => {
+    console.log("[Cockpit.js] 2nd useEffect");
+    return () => {
+      console.log("[Cockpit.js] cleanup work in 2nd useEffect");
+    };
+  });
 
   const assignedClasses = [];
   let btnClass = [classes.Button];
