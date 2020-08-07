@@ -6,10 +6,12 @@ const cockpit = (props) => {
   useEffect(() => {
     console.log("[Cockpit.js] useEffect");
     //HttpRequest
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       // alert("person modified");
     }, 1000);
+    // Run the cockpit component is unmount
     return () => {
+      clearTimeout(timer);
       console.log("[Cockpit.js] cleanup work in useEffect");
     };
   }, []);
