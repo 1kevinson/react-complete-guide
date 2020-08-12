@@ -29,6 +29,7 @@ class BurgerBuilder extends Component {
     },
     totalPrice: 4,
     purchasable: false,
+    purchasing: false,
   };
 
   updatePurchaseState(ingredients) {
@@ -74,6 +75,11 @@ class BurgerBuilder extends Component {
     this.updatePurchaseState(updatedIngredients);
   };
 
+  // Use arrow function, then the this method should point to the class
+  purchaseHandler = () => {
+    this.setState({ purchasing: true });
+  };
+
   render() {
     // Copy the ingredient Object
     const disableInfo = {
@@ -87,7 +93,7 @@ class BurgerBuilder extends Component {
 
     return (
       <Aux>
-        <Modal>
+        <Modal show={this.state.purchasing}>
           <OrderSummary ingredients={this.state.ingredients} />
         </Modal>
 
@@ -98,6 +104,7 @@ class BurgerBuilder extends Component {
           purchasable={this.state.purchasable}
           disabled={disableInfo}
           price={this.state.totalPrice}
+          ordered={this.purchaseHandler}
         />
       </Aux>
     );
