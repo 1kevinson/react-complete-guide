@@ -1,15 +1,15 @@
 import React from "react";
 
 import Logo from "../../Logo/Logo";
-import NavigationsItem from "../NavigationItems/NavigationItems";
+import NavigationItems from "../NavigationItems/NavigationItems";
 import classes from "./SideDrawer.css";
 
 const sideDrawer = (props) => {
   return (
     <div className={classes.SideDrawer}>
-      <Logo />
+      <Logo height="10%" />
       <nav>
-        <NavigationsItem />
+        <NavigationItems />
       </nav>
     </div>
   );
