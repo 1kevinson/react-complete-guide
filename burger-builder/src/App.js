@@ -22,4 +22,6 @@ class App extends Component {
   }
 }
 
+// All the component are loaded from router get the special props
+
 export default App;
