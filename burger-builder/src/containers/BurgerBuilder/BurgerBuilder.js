@@ -39,11 +39,11 @@ class BurgerBuilder extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props);
     axios
-      .get("https://react-my-burger-9f990.firebaseio.com/orders")
+      .get("/orders.json")
       .then((response) => {
-        this.setState({ ingredients: response.data });
+        console.log(response.data);
+        //this.setState({ ingredients: response.data });
       })
       .catch((error) => {
         this.setState({ error: true });
