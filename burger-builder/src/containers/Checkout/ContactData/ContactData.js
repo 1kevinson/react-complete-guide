@@ -7,13 +7,27 @@ import axios from "../../../axios-orders";
 import Input from "../../../components/UI/Forms/Input/Input";
 
 class ContactData extends Component {
+  helperForm = (elType, elConfigType, elConfigPlaceHolder, elValue) => {
+    return {
+      elementType: elType,
+      elementConfig: {
+        type: elConfigType,
+        placeholder: elConfigPlaceHolder,
+      },
+      value: elValue,
+    };
+  };
+
   state = {
-    name: "",
-    email: "",
-    address: {
-      street: "",
-      postalCode: "",
+    orderForm: {
+      name: this.helperForm("input", "text", "your name", ""),
+      email: this.helperForm("input", "email", "your email", ""),
+      street: this.helperForm("input", "text", "street", ""),
+      country: this.helperForm("input", "text", "your country", ""),
+      zipCode: this.helperForm("input", "text", "your zipcode", ""),
+      deliveryMethod: this.helperForm("input", "text", "fast, fastest...", ""),
     },
+
     loading: false,
   };
 
@@ -49,12 +63,7 @@ class ContactData extends Component {
   render() {
     let form = (
       <form>
-        <Input
-          inputtype="input"
-          type="text"
-          name="name"
-          placeholder="Your Name"
-        />
+        <Input inputtype="input" elementType="" elementConfig="" value="" />
         <Input
           inputtype="input"
           type="email"
