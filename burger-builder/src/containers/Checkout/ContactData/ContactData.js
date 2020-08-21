@@ -42,20 +42,17 @@ class ContactData extends Component {
 
   OrderHandler = (event) => {
     event.preventDefault();
+
     this.setState({ loading: true });
+    const formData = {};
+    for (let formElId in this.state.orderForm) {
+      formData[formElId] = this.state.orderForm[formElId].value;
+    }
+
     const order = {
       ingredients: this.props.ingredients,
       price: this.props.price,
-      customer: {
-        name: "Arsene Kevin",
-        address: {
-          street: "TestStreet 1",
-          zipCode: "41351",
-          country: "Germany",
-        },
-        email: "kouomeukevin@yahoo.Fr",
-      },
-      deliveryMethod: "fastest",
+      orderData: formData,
     };
 
     axios
@@ -70,14 +67,15 @@ class ContactData extends Component {
   };
 
   inputChangedHandler = (event, inputIdentifier) => {
-    const updatedOderForm = {
+    console.log(event.target.value);
+    const updatedOrderForm = {
       ...this.state.orderForm,
     };
 
-    const updatedFormElement = { ...updatedOderForm[inputIdentifier] };
+    const updatedFormElement = { ...updatedOrderForm[inputIdentifier] };
     updatedFormElement.value = event.target.value;
-    updatedOderForm[inputIdentifier] = updatedFormElement;
-    this.setState({ orderForm: updatedOderForm });
+    updatedOrderForm[inputIdentifier] = updatedFormElement;
+    this.setState({ orderForm: updatedOrderForm });
   };
 
   render() {
@@ -89,7 +87,7 @@ class ContactData extends Component {
       });
     }
     let form = (
-      <form>
+      <form onSubmit={this.OrderHandler}>
         {formElArray.map((formEl) => (
           <Input
             key={formEl.id}
