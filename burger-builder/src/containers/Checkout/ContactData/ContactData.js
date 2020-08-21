@@ -26,6 +26,7 @@ class ContactData extends Component {
         minLength: 3,
       },
       valid: false,
+      touched: false,
     };
   };
 
@@ -88,6 +89,7 @@ class ContactData extends Component {
       updatedFormElement.value,
       updatedFormElement.validation
     );
+    updatedFormElement.touched = true;
     updatedOrderForm[inputIdentifier] = updatedFormElement;
     this.setState({ orderForm: updatedOrderForm });
   };
@@ -124,6 +126,7 @@ class ContactData extends Component {
             value={formEl.config.value}
             invalid={!formEl.config.valid}
             shouldValidate={formEl.config.validation}
+            touched={formEl.config.touched}
             changed={(event) => this.inputChangedHandler(event, formEl.id)}
           />
         ))}
