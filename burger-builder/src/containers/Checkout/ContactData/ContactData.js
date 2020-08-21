@@ -7,7 +7,13 @@ import axios from "../../../axios-orders";
 import Input from "../../../components/UI/Forms/Input/Input";
 
 class ContactData extends Component {
-  helperForm = (elType, elConfigType, elConfigPlaceHolder, elValue) => {
+  helperForm = (
+    elType,
+    elConfigType,
+    elConfigPlaceHolder,
+    elValue,
+    elValidation
+  ) => {
     return {
       elementType: elType,
       elementConfig: {
@@ -15,16 +21,21 @@ class ContactData extends Component {
         placeholder: elConfigPlaceHolder,
       },
       value: elValue,
+      validation: {
+        required: elValidation,
+        minLength: 3,
+      },
+      valid: false,
     };
   };
 
   state = {
     orderForm: {
-      name: this.helperForm("input", "text", "your name", ""),
-      email: this.helperForm("input", "email", "your email", ""),
-      street: this.helperForm("input", "text", "street", ""),
-      country: this.helperForm("input", "text", "your country", ""),
-      zipCode: this.helperForm("input", "text", "your zipcode", ""),
+      name: this.helperForm("input", "text", "your name", "", true),
+      email: this.helperForm("input", "email", "your email", "", true),
+      street: this.helperForm("input", "text", "street", "", true),
+      country: this.helperForm("input", "text", "your country", "", true),
+      zipCode: this.helperForm("input", "text", "your zipcode", "", true),
       deliveryMethod: {
         elementType: "select",
         elementConfig: {
@@ -74,9 +85,28 @@ class ContactData extends Component {
 
     const updatedFormElement = { ...updatedOrderForm[inputIdentifier] };
     updatedFormElement.value = event.target.value;
+    updatedFormElement.valid = this.checkValidity(
+      updatedFormElement.value,
+      updatedFormElement.validation
+    );
+    console.log(updatedFormElement);
     updatedOrderForm[inputIdentifier] = updatedFormElement;
     this.setState({ orderForm: updatedOrderForm });
   };
+
+  checkValidity(value, rules) {
+    let isValid = false;
+
+    if (rules.required) {
+      isValid = value.trim() !== "";
+    }
+
+    if (rules.minLength) {
+      isValid = value.length >= rules.minLength;
+    }
+
+    return isValid;
+  }
 
   render() {
     const formElArray = [];
